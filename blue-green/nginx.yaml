@@ -1,5 +1,5 @@
-apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1 # for versions before 1.9.0 use apps/v1beta2
+kind: Rollout
 metadata:
   name: nginx-deployment
 spec:
@@ -17,3 +17,9 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+  strategy:
+  # ----- Everything above this comment are the same as a deployment -----
+    canary: # A new field that used to provide configurable options for a Canary strategy
+      steps:
+      - setWeight: 20
+      - pause: {}
