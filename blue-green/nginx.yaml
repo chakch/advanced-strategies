@@ -14,12 +14,10 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: argoproj/rollouts-demo:blue
         ports:
         - containerPort: 80
   strategy:
-  # ----- Everything above this comment are the same as a deployment -----
-    canary: # A new field that used to provide configurable options for a Canary strategy
-      steps:
-      - setWeight: 20
-      - pause: {}
+    canary:
+      maxSurge: 1
+      maxUnavailable: 1
