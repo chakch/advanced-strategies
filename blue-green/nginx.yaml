@@ -16,7 +16,7 @@ spec:
       - name: nginx
         image: argoproj/rollouts-demo:red
         ports:
-        - containerPort: 80
+        - containerPort: 8080
   strategy:
     canary:
       maxSurge: 1
