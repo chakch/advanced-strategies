@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: argoproj/rollouts-demo:blue
+        image: argoproj/rollouts-demo:red
         ports:
         - containerPort: 8080
   strategy:
@@ -33,3 +33,4 @@ spec:
           # stack as soon as the ReplicaSet are completely ready/available.
           # Rollouts can be resumed using: `kubectl argo rollouts resume ROLLOUT`
           autoPromotionEnabled: false
+          previewReplicaCount: 4
