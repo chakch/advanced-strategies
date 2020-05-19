@@ -6,6 +6,7 @@ metadata:
     app: ratings
     service: ratings
 spec:
+  type: NodePort
   ports:
   - port: 9080
     name: http
