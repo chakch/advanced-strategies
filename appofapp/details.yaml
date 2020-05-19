@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: blue-green
+  name: details
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add a this finalizer ONLY if you want these to cascade delete.
@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: git@github.com:chakch/advanced-strategies.git
     targetRevision: HEAD
-    path: blue-green
+    path: blue-green/book-info/details
 
     # directory
     directory:
